@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cl.android.chartonlyforyou"
+   >
+<!--    android:installLocation="internalOnly"-->
+
+    <!-- 开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 读取短信 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--改变网络-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!--<uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />-->
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:persistent="true"
+        >
+
+        <!-- 百度的定位服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+        <!-- 百度 meta-data需要写在application中 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="FjcA3nUx2IDdc3UBFynxoIVHQfV1KBqo" />
+        <!-- http://lbsyun.baidu.com/apiconsole/key -->
+
+
+        <!-- 融云 key -->
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="pgyu6atqyldqu" />
+        <!-- 会话界面 ,使用了 -->
+        <activity
+            android:name=".rongchart.ConversationChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <!-- intent-filter 配置 host改为自己的包名 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.cl.android.chartonlyforyou"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <!-- 九格宫密码 -->
+        <activity android:name=".password.DrawPwdActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 获取定位信息 -->
+        <activity android:name=".baidulocation.LocationActivity"></activity>
+        <activity android:name=".rongchart.ChartListActivity" />
+
+        <!-- 新版相册新增AC -->
+        <activity android:name=".rongchart.picture.PreviewActivity" />
+        <activity android:name=".rongchart.picture.MultiImageSelectorActivity" />
+        <activity android:name=".rongchart.PhotoActivity" />
+        <!-- 开机自启 -->
+       <receiver android:name=".services.BootBroadcastReceiver" android:priority="1000">
+            <intent-filter>
+                <!--开机-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--网络改变-->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <!--界面唤醒-->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!--应用状态改变-->
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.ChartService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+    </application>
+
+</manifest>

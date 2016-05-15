@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">OnlyYou</string>
+
+    <string name="setting">设置界面</string>
+    <string name="clearpassword">重置密码</string>
+    <string name="DND">勿扰模式</string>
+    <string name="chenling">chart with You</string>
+    <string name="save">保存</string>
+    <string name="mobile_number">紧急联系手机号码</string>
+    <string name="useInfo">使用说明：\n
+                            1.#location 命令获取对方的定位信息（紧急时使用）\n
+                            2.勿扰模式下没有任何提示，非勿扰模式下后台运行时有提示音。\n
+                            3.清除密码可以重置密码\n
+                            4.添加了开机启动，基本内存清不了了\n
+                            5.新增短信发送"#location"让对方获取定位信息 10分钟刷新一次\n
+                            6.新增"#locationToSMS"获取定位信息,以短信形式发送（手机号为预留号码）\n
+                            6.新增"#locationToSMS"时自动开启wifi \n
+
+
+    </string>
+
+    <!--baidu-->
+    <string name="startlocation">开始定位</string>
+    <string name="stoplocation">停止定位</string>
+
+    <!--融云图片选择器-->
+    <string name="folder_all">所有图片</string>
+    <string name="preview">预览</string>
+    <string name="msg_no_camera">没有系统相机</string>
+    <string name="msg_amount_limit">已经达到最高选择数量</string>
+
+</resources>
