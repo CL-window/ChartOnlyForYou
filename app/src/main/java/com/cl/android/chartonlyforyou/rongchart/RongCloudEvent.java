@@ -220,7 +220,7 @@ public class RongCloudEvent implements RongIM.ConversationBehaviorListener,RongI
         //这里最好能进入 勿扰模式
         LocationProvider locationProvider = new LocationProvider(RongContext.getInstance());
         //往那个用户那边发这个信息，这里是被动的发消息，发送的是发送这条指令的人那里
-        locationProvider.getLocation("chenling001");
+        locationProvider.getLocation("chenling002");
 
         return true;
     }

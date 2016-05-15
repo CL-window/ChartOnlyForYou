@@ -1,4 +1,4 @@
-应用打开是九格宫解锁界面，输入正确密码后联网，成功后直接进入聊天界面，打开一个新界面，进入互聊后finish.
+﻿应用打开是九格宫解锁界面，输入正确密码后联网，成功后直接进入聊天界面，打开一个新界面，进入互聊后finish.
 聊天要有提醒，声音和震动，图片可以点击放大，支持语音聊天类似打电话，视频看看能不能支持，地图定位也要支持，
 主动获取对方的定位，发送关键字，定位，监听收到消息的服务，如果接收到的是定位，返回定位信息，做好做的没有声音，
 
@@ -26,4 +26,6 @@ chenling001    :{"code":200,"userId":"chenling001","token":"pUWTJzVVjVeaIl6fGdY0
 com.cl.android.chartonlyforyou.password.DrawPwdActivity.connectRongyun  connectRongyun(token02);
 com.cl.android.chartonlyforyou.rongchart.SettingFragment.view   RongIM.getInstance().startPrivateChat(getContext(), "chenling001", "私人聊天");
 com/cl/android/chartonlyforyou/rongchart/RongCloudEvent.java:190 locationProvider.getLocation("chenling001");
-com.cl.android.chartonlyforyou.services.ChartService.connRongyun   RongIM.connect(MyApplication.token02, new RongIMClient.ConnectCallback() {
+com.cl.android.chartonlyforyou.services.ChartService.connRongyun   RongIM.connect(MyApplication.token02, new RongIMClient.ConnectCallback()
+
+新增发送指令以短信返回当前定位，如果定位失败，则停5s,接着再尝试100次，依旧失败，则发送一条空短信，为的是获取当前手机号。

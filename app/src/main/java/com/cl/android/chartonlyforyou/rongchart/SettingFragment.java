@@ -52,7 +52,7 @@ public class SettingFragment extends Fragment {
         view.findViewById(R.id.chartslack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RongIM.getInstance().startPrivateChat(getContext(), "chenling001", "私人聊天");
+                RongIM.getInstance().startPrivateChat(getContext(), "chenling002", "私人聊天");
             }
         });
         view.findViewById(R.id.clearpassword).setOnClickListener(new View.OnClickListener() {

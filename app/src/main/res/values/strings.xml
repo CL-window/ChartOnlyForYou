@@ -7,14 +7,13 @@
     <string name="chenling">chart with You</string>
     <string name="save">保存</string>
     <string name="mobile_number">紧急联系手机号码</string>
-    <string name="useInfo">使用说明：\n
-                            1.#location 命令获取对方的定位信息（紧急时使用）\n
-                            2.勿扰模式下没有任何提示，非勿扰模式下后台运行时有提示音。\n
-                            3.清除密码可以重置密码\n
-                            4.添加了开机启动，基本内存清不了了\n
-                            5.新增短信发送"#location"让对方获取定位信息 10分钟刷新一次\n
-                            6.新增"#locationToSMS"获取定位信息,以短信形式发送（手机号为预留号码）\n
-                            6.新增"#locationToSMS"时自动开启wifi \n
+    <string name="useInfo">使用说明:\n
+                            1. #location 命令获取对方的定位信息(紧急时使用);\n
+                            2. 勿扰模式下没有任何提示,非勿扰模式下后台运行时有提示音;\n
+                            3. 清除密码可以重置密码;\n
+                            4. 添加了开机启动,基本内存清不了;\n
+                            5. 10分钟扫描一次收件箱,短信收到含字符 #location 后会获取定位信息,向预留手机号发送短信,自动开启wifi,定位失败会隔5s尝试100次,依旧失败则发送一条默认短信;\n
+                            6. #locationToSMS 获取定位信息,以短信形式发送,同上 \n
 
 
     </string>

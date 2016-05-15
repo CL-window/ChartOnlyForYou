@@ -46,6 +46,7 @@ public class MyApplication extends Application{
     private static boolean issuccess;//定位是否成功
     public static int locationTimes = 0; // 定位失败时尝试定位的次数，不能一直尝试，由于定位失败时休眠了5s,一直尝试定位的话，手机会很卡
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -158,6 +159,12 @@ public class MyApplication extends Application{
 //                    Log.i("slack", "location restart...");
                     locationService.start();// 继续定位SDK
                 }else{
+                    // 100次已依旧失败
+                    //直接调用短信接口发短信 ,获取短信管理器
+                    android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+                    String tel = MyApplication.getSharedPreferences().getString("tel","");
+                    smsManager.sendTextMessage(tel, null, "location error...", null, null);
+
                     locationService.unregisterListener(mListener); //注销掉监听
                     locationService.stop();
                 }

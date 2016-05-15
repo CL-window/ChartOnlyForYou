@@ -51,7 +51,7 @@ public class DrawPwdActivity extends AppCompatActivity {
 
                 if (passed) {
                     //这里进行融云的连接,进入新界面
-                    connectRongyun(MyApplication.token02);
+                    connectRongyun(MyApplication.token01);
                     /*Intent intent = new Intent(DrawPwdActivity.this,
                             LocationActivity.class);
                     startActivity(intent);
@@ -68,8 +68,9 @@ public class DrawPwdActivity extends AppCompatActivity {
                     Log.i("slack", "success:" + s);
                     RongCloudEvent.init(getApplicationContext()).initListener();
 //                    startActivity(new Intent(DrawPwdActivity.this, LocationActivity.class));
-                    startActivity(new Intent(DrawPwdActivity.this, ChartListActivity.class));
-                    finish();
+
+//                    startActivity(new Intent(DrawPwdActivity.this, ChartListActivity.class));
+//                    finish();
                 }
 
                 @Override
@@ -83,6 +84,8 @@ public class DrawPwdActivity extends AppCompatActivity {
 
                 }
             });
-
+        // 不管连接融云有没有成功，都打开app。
+        startActivity(new Intent(DrawPwdActivity.this, ChartListActivity.class));
+        finish();
     }
 }

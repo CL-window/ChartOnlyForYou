@@ -70,7 +70,7 @@ public class ChartService extends Service {
     }
 
     private void connRongyun() {
-        RongIM.connect(MyApplication.token02, new RongIMClient.ConnectCallback() {
+        RongIM.connect(MyApplication.token01, new RongIMClient.ConnectCallback() {
             @Override
             public void onSuccess(String s) {
                 RongCloudEvent.init(getApplicationContext()).initListener();
@@ -150,7 +150,7 @@ public class ChartService extends Service {
                 Log.i("slack", "sendMessage.........");
                 //定位需要网络，GPS,这里打开wifi(成功)，GPS（error）,数据流量（error）
                 //获取 网络连接
-                connection();
+                wifiConnection();
                 MyApplication.sendMessage();
 
 
@@ -160,7 +160,7 @@ public class ChartService extends Service {
     }
 
     // 这里的wifi 只开不关吧
-    private  void connection() {
+    private  void  wifiConnection() {
         // http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.Class<T>)
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
